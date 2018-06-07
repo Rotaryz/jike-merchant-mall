@@ -1,0 +1,36 @@
+{
+  "name": "JikeMerchantMall",
+  "version": "1.0.0",
+  "description": "集客商家商城",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "build-ios": "react-native unbundle --entry-file index.ios.js --platform ios --dev false",
+    "build-android": "cd android && ./gradlew assembleRelease && open app/build/outputs/apk && cd .."
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-navigation": "^2.2.3",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.4.0",
+    "redux-logger": "^3.0.6",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "23.1.0",
+    "query-string": "^6.1.0",
+    "react-native-easy-toast": "^1.1.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
