@@ -15,7 +15,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    SplashScreen.hide()d
+    SplashScreen.hide()
   }
 
   componentWillUnmount() {
