@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
-import {View, DeviceEventEmitter} from 'react-native'
+import {View, DeviceEventEmitter, YellowBox} from 'react-native'
 import Toast, {DURATION} from 'react-native-easy-toast'
 import Navigation from './navigation'
+
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
 export const ACTION_APP = {A_SHOW_TOAST: 'showToast'}
 
