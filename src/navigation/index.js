@@ -1,6 +1,7 @@
 import React from 'react'
 import {Easing, Animated} from 'react-native'
 import {createStackNavigator} from 'react-navigation'
+import options from '../util/options'
 
 import Home from '../page/home/home'
 import TestNavigate from '../page/test-navigate/test-navigate'
@@ -12,11 +13,14 @@ const Navigation = createStackNavigator({
       header: null
     }
   },
-  TestNavigate: TestNavigate
+  TestNavigate: {
+    screen: TestNavigate,
+    navigationOptions: (navigation) => options.defaultNavigationOptions(navigation)
+  }
 }, {
   initialRouteName: 'Home',
   navigationOptions: {
-    gesturesEnabled: true,
+    gesturesEnabled: true
   },
   mode: "card",
   headerMode: "screen",

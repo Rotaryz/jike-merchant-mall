@@ -3,8 +3,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  StatusBar
 } from 'react-native'
+import options from '../../util/options'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -15,9 +17,15 @@ const instructions = Platform.select({
 
 type Props = {}
 export default class TestNavigate extends Component<Props> {
+  static navigationOptions =  {
+    title: '测试StatusBar',
+    headerStyle: options.defaultHeaderTranslucentStyle
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar backgroundColor='#fff' translucent={true} hidden={false} animated={true} barStyle='dark-content'></StatusBar>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
