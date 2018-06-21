@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
-import {View, DeviceEventEmitter, YellowBox} from 'react-native'
-import Toast, {DURATION} from 'react-native-easy-toast'
+import {View, DeviceEventEmitter, YellowBox, TouchableOpacity} from 'react-native'
+// import Toast, {DURATION} from 'react-native-easy-toast'
+import {Toast} from './base/toast/tosat'
 import Navigation from './navigation'
+import variable from "./style/variable";
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader'])
 
@@ -23,9 +25,29 @@ class App extends Component {
    * @param params
    */
   onAction(action, params) {
-    console.log(action, params)
     if (ACTION_APP.A_SHOW_TOAST === action) {
-      this.toast.show(params.text, DURATION.LENGTH_LONG)
+      let type = params.type || 'showSuccess'
+      switch (type) {
+        case 'show':
+          Toast.show(params.text)
+          break
+        case 'showLong':
+          Toast.showLong(params.text)
+          break
+        case 'showSuccess':
+          Toast.showSuccess(params.text)
+          break
+        case 'showLongSuccess':
+          Toast.showLongSuccess(params.text)
+          break
+        case 'showWarning':
+          Toast.showWarning(params.text)
+          break
+        case 'showError':
+          Toast.showError(params.text)
+          break
+      }
+      // this.toast.show(params.text, DURATION.LENGTH_LONG)
     }
   }
 
@@ -40,7 +62,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Navigation uriPrefix={prefix}></Navigation>
-        <Toast ref={(toast)=>this.toast=toast}/>
+        {/*<Toast ref={(toast)=>this.toast=toast}/>*/}
       </View>
     )
   }
@@ -48,7 +70,7 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   }
 })
 
